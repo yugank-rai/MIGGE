@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAGGE — Campus Magazine</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <canvas id="preloader-canvas"></canvas>
+      <div class="preloader-logo">
+        <span class="pre-m">M</span><span class="pre-a">I</span><span class="pre-g">G</span><span class="pre-g2">G</span><span class="pre-e">E</span>
+      </div>
+      <div class="preloader-tagline">Campus · Culture · Chronicles</div>
+      <div class="preloader-bar"><div class="preloader-fill" id="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">MIGGE</div>
+    <div class="nav-links">
+      <a href="#articles" class="nav-link">Articles</a>
+      <a href="#events" class="nav-link">Events</a>
+      <a href="#spotlights" class="nav-link">Spotlights</a>
+      <a href="#news" class="nav-link">News</a>
+    </div>
+    <div class="nav-issue">Apr 2026 · Vol.12</div>
+    <button class="nav-hamburger" id="hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="mobile-menu">
+    <a href="#articles" class="nav-mobile-link">Articles</a>
+    <a href="#events" class="nav-mobile-link">Events</a>
+    <a href="#spotlights" class="nav-mobile-link">Spotlights</a>
+    <a href="#news" class="nav-mobile-link">News</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-dot"></span> April 2026 Edition
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-line" data-text="The Future">The Future</span>
+        <span class="hero-title-line italic" data-text="is Written">is Written</span>
+        <span class="hero-title-line" data-text="Here.">Here.</span>
+      </h1>
+      <p class="hero-sub">Stories that define campus life. Voices that shape tomorrow.</p>
+      <div class="hero-cta-row">
+        <a href="#articles" class="hero-cta">Read This Issue</a>
+        <div class="hero-scroll-hint">
+          <div class="scroll-wheel"></div>
+          <span>Scroll</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num">48</span><span class="stat-label">Articles</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="stat-num">12</span><span class="stat-label">Events</span></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><span class="stat-num">5K+</span><span class="stat-label">Readers</span></div>
+      </div>
+    </div>
+    <div class="hero-cover-badge">
+      <div class="badge-inner">Cover<br>Story</div>
+    </div>
+  </section>
+
+  <!-- ===== ARTICLES ===== -->
+  <section id="articles">
+    <div class="section-header">
+      <div class="section-kicker">Latest Stories</div>
+      <h2 class="section-title">Articles</h2>
+      <p class="section-sub">Curated stories from across campus</p>
+    </div>
+
+    <!-- Search + Filter -->
+    <div class="articles-controls">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="search-input" placeholder="Search articles…" class="search-input" />
+      </div>
+      <div class="filter-pills" id="filter-pills">
+        <button class="pill active" data-cat="all">All</button>
+        <button class="pill" data-cat="academic">Academic</button>
+        <button class="pill" data-cat="sports">Sports</button>
+        <button class="pill" data-cat="culture">Culture</button>
+        <button class="pill" data-cat="tech">Tech</button>
+        <button class="pill" data-cat="events">Events</button>
+      </div>
+    </div>
+
+    <div class="articles-grid" id="articles-grid">
+      <!-- Injected by JS -->
+    </div>
+  </section>
+
+  <!-- ===== EVENTS CAROUSEL ===== -->
+  <section id="events">
+    <div class="section-header light">
+      <div class="section-kicker">On Campus</div>
+      <h2 class="section-title">Event Gallery</h2>
+      <p class="section-sub">Moments that made this semester unforgettable</p>
+    </div>
+    <div class="events-carousel-wrap">
+      <div class="events-track" id="events-track">
+        <!-- Injected by JS -->
+      </div>
+      <button class="ev-arrow ev-prev" id="ev-prev" aria-label="previous">&#8592;</button>
+      <button class="ev-arrow ev-next" id="ev-next" aria-label="next">&#8594;</button>
+    </div>
+    <div class="events-dots" id="events-dots"></div>
+  </section>
+
+  <!-- ===== STUDENT SPOTLIGHTS ===== -->
+  <section id="spotlights">
+    <div class="section-header">
+      <div class="section-kicker">Faces of MIGGE</div>
+      <h2 class="section-title">Student Spotlights</h2>
+      <p class="section-sub">The brilliant minds shaping our campus story</p>
+    </div>
+    <div class="spotlights-grid" id="spotlights-grid">
+      <!-- Injected by JS -->
+    </div>
+  </section>
+
+  <!-- ===== CAMPUS NEWS ===== -->
+  <section id="news">
+    <div class="section-header light">
+      <div class="section-kicker">Breaking</div>
+      <h2 class="section-title">Campus News</h2>
+      <p class="section-sub">What's buzzing around the quad right now</p>
+    </div>
+    <div class="news-layout" id="news-layout">
+      <!-- Injected by JS -->
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">MIGGE</div>
+        <p class="footer-desc">The official student magazine of IIIT Bhagalpur. Published monthly by the Campus Media Cell.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">IG</a>
+          <a href="#" class="social-btn">TW</a>
+          <a href="#" class="social-btn">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigate</div>
+        <a href="#articles" class="footer-link">Articles</a>
+        <a href="#events" class="footer-link">Events</a>
+        <a href="#spotlights" class="footer-link">Spotlights</a>
+        <a href="#news" class="footer-link">Campus News</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <a href="#" class="footer-link">Our Team</a>
+        <a href="#" class="footer-link">Submit a Story</a>
+        <a href="#" class="footer-link">Advertise</a>
+        <a href="#" class="footer-link">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">This Issue</div>
+        <span class="footer-info">Vol. 12 · Issue 04</span>
+        <span class="footer-info">April 2026</span>
+        <span class="footer-info">IIIT Bhagalpur</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MIGGE Magazine · All rights reserved</span>
+      <span>Made for web-Technology Project</span>
+    </div>
+  </footer>
+
+  <!-- ARTICLE MODAL -->
+  <div class="modal-overlay" id="article-modal">
+    <div class="modal-box" id="article-modal-box">
+      <button class="modal-close" id="article-modal-close" aria-label="close">✕</button>
+      <div class="modal-img-wrap" id="modal-img-wrap"></div>
+      <div class="modal-content">
+        <div class="modal-cat" id="modal-cat"></div>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-meta" id="modal-meta"></div>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDENT MODAL -->
+  <div class="modal-overlay" id="student-modal">
+    <div class="modal-box student-modal-box" id="student-modal-box">
+      <button class="modal-close" id="student-modal-close" aria-label="close">✕</button>
+      <div class="student-modal-top" id="student-modal-top"></div>
+      <div class="student-modal-body" id="student-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
